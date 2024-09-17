@@ -1,3 +1,21 @@
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const port = 3000; // You can change this port if needed
+
+// Serve static files (e.g., HTML, CSS, JavaScript)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Handle requests for the root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
+
 const mineflayer = require('mineflayer')
 const cmd = require('mineflayer-cmd').plugin
 const fs = require('fs');
